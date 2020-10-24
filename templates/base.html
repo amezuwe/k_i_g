@@ -11,6 +11,9 @@
     <title>Kirza Investment Group</title>
   </head>
   <body>
+      {% if user.is_authenticated %}
+        {% include 'partials/_navbar.html' %}
+      {% endif %}
     <h2 class="text-center">
       <br>
       {% block page_title %} {% endblock %}
