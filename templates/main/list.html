@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- <style>
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style> -->
+<h6>Investor Name: {{ current_user.first_name }} {{ current_user.last_name }}</h6>
+
+<button type="button" class="btn btn-outline-primary" onclick="window.location.href = '{% url 'accounts:logout' %}';"><i class="fas fa-plus"></i> Logout</button>
+<hr>
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+              <th scope="col">#</th>
+              <th scope="col">Date</th>
+              <th scope="col">Notes</th>
+              <th scope="col">Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for obj in investments %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ obj.date }}</td>
+            {% if obj.notes == '0' %}
+                <td>-</td>
+            {% else %}
+                <td>{{ obj.notes }}</td>
+            {% endif %}
+            <td>{{ obj.amount }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,9 @@
+env
+db.sqlite3
+# Added from previous
+*.pyc
+*~
+/.vscode
+__pycache__
+/static
+.DS_Store
