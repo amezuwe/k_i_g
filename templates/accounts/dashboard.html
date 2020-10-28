@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Your Dashboard:</h3>
+<hr>
+<hr>
+<div>
+    <h5>Your Profile:</h5>
+    {% if user_profile is None %}
+        <p>You have no profile yet. Click on the link below to create it.</p>
+    {% else %}
+        <ul>
+            <li><strong>Username:</strong> {{ user_profile.user }}</li>
+            <li><strong>Full name:</strong> {{ user_profile.first_name }} {{ user_profile.last_name }}</li>
+            <li><strong>Email:</strong> {{ user_profile.email }}</li>
+            <li><strong>Phone:</strong> {{ user_profile.phone }}</li>
+            <li><strong>Investment Goal:</strong> {{ user_profile.investment_goal }}</li>
+        </ul>
+    {% endif %}
+    <a class="btn btn-outline-primary" href="{% url 'accounts:update_profile' %}">Update Profile</i></a>
+</div>
+<br>
+<hr>
+<div>
+    <h5>Your Investments:</h5>
+    <a class="btn btn-outline-primary" href="{% url 'main:investment_list' %}">View All Investments</i></a>
+</div>
+<br>
+<hr>
+{% endblock %}

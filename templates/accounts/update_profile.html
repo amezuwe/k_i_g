@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Update Your Profile:</h3>
+<br>
+<div>
+    <form method="POST" action=".">{% csrf_token %}
+        {{ form.as_p }}
+        <p>
+            <button class="btn btn-outline-primary" type="submit" name="action">Update</button>   
+            <a class="btn btn-outline-danger" href="{% url 'accounts:dashboard' %}">Cancel</i></a>
+        </p>
+    </form>
+</div>
+
+{% endblock %}
+

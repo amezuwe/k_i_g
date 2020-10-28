@@ -6,7 +6,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='username')
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    email = models.EmailField(max_length=50, verbose_name='your email', help_text='Enter your active email address')
+    email = models.EmailField(max_length=50, verbose_name='your email')
     phone = models.CharField(max_length=15, verbose_name='your phone number')
     investment_goal = models.CharField(max_length=200, verbose_name='your investment goals')
 

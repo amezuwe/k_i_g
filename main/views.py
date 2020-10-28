@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='accounts:login')
 def home(request):
-    return redirect('main:investment_list')
+    return redirect('accounts:dashboard')
 
 
 @login_required(login_url='accounts:login')
