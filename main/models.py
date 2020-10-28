@@ -10,4 +10,7 @@ class Investment(models.Model):
     notes = models.CharField(max_length=200, default=0, blank=True)
 
     def __str__(self):
-        return self.investor.username
+        return f"{self.investor.username} -> {self.amount}"
+
+    class Meta:
+        ordering = ('-date',)
